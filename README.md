@@ -34,8 +34,8 @@ Preformance Tab in Dev tools: Helps you understand how much time a UI is taking 
 API improvements
 Will Enable CORS in the first change, will add more restaurant features like : whats famous in the restaurant and Reviews for the restaurant, and cards should match the restaurant Theme Example (if its Chinese Card theme is liitle different, if its Italian its little different
 # 5)
-let About me =
-{
+
+let about_me = {
   "motive":"Learn new things in the rapidly changing Environment",
   "key_skills":[ {"skill_name":"React JS","rating":"7/10"} ],
   "collaborative":"10/10",
