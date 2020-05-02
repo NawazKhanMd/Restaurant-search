@@ -1,0 +1,34 @@
+@import 'variables';
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+// Don't allow the screen to get any narrower than we are comfortable with.
+#root{
+    height:100vh;
+  background-color: $primary_background;
+}
+.App {
+    background-color: $primary_background;
+  font-family: 'Comfortaa';
+}
+.home-container{
+h1{
+    color:$primary_text_clr;
+    font-size: xxx-large;
+}
+p{
+    color: $primary_text_clr ;
+   
+}
+}
+
+
+.margin0{
+    margin: pixelX5(0);
+}
+@media only screen and (max-width: 600px) {
+    .home-container{
+    h1{
+        color:$primary_text_clr;
+        font-size: larger;
+    }}
+  }
+
