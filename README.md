@@ -22,7 +22,7 @@ Run -- npm test
 # QnA
 
 # 1)
-Time Taken : 4 Hours,
+Time Taken : 5 Hours,
 Preferred Additions : a Couple of UI Animations, Browser Location API (To auto detect the location), A better API Response to display Good reviewed Restaurants.
 # 2) 
 Most Liked Feature
