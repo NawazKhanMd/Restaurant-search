@@ -1,8 +1,7 @@
 export const home_action_types = {
-    get_cities_success: 'get_cities_success',
-    get_cities_fail: 'get_cities_success',
-    get_restaurants_success: 'get_restaurants_success',
-    get_restaurants_fail: 'get_restaurants_fail',
-    filter_restaurants:'filter_restaurants',
-    loading:'loading'
+    loading:'loading',
+    get_movies_success:'get_movies_success',
+    no_movies_found:'no_movies_found',
+    update_fav_movies:'update_fav_movies',
+    get_movie_details:'get_movie_details'
 } 

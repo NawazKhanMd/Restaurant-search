@@ -1,6 +1,7 @@
+const key = JSON.parse(process.env.REACT_APP_SECRETS).REACT_APP_API_KEY
 export const restApiUrls = {
-CitiesURL :'http://opentable.herokuapp.com/api/cities',
-RestaurantURL :'http://opentable.herokuapp.com/api/restaurants?city=#{CITY}#&per_page=100',
+omdbapiURL:`http://www.omdbapi.com/?s={searchKey}&apikey=${key}&page={pageNumber}`,
+getMovieDetails :`http://www.omdbapi.com/?i={IMDBkey}&apikey=${key}&plot=full`
 }
 const axios = require('axios');
 

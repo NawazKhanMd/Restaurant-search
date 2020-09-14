@@ -1,47 +1,43 @@
-import {home_action_types as atn_typ} from '../Actions & Constants/constants'
-
+import { home_action_types as atn_typ } from '../Actions & Constants/constants'
 export const initialState = {
-    Cities: [],
-    Restaurants:[],
-    SavedRestaurants:[],
-    Address:[],
-    loading:false,
+    loading: false,
+    movies: [],
+    favMovies: localStorage.getItem('favMovies') == null ? [] : JSON.parse(localStorage.getItem('favMovies')),
+    selectedMovie: {}
 };
 
 
 export const home = (state = initialState, action) => {
 
     switch (action.type) {
-        case atn_typ.get_cities_success:
-            state.Cities  = action.payload.data.cities.reduce((acc,val)=>{
-                let obj ={label:val,value:val};
-                acc.push(obj);
-                return acc;
-            },[])
-            return {...state}
-        case atn_typ.get_restaurants_success:
-            state.Restaurants = action.payload.data.restaurants
-            state.SavedRestaurants = action.payload.data.restaurants
-            state.Address = action.payload.data.restaurants.reduce((acc,val)=>{
-                let obj ={label:val.address,value:val.address};
-                acc.push(obj);
-                return acc;
-            },[])
-        return {...state}
-        case atn_typ.filter_restaurants:
-            if(action.address == ''){
-                state.Restaurants = [...state.SavedRestaurants]
-            }else if(action.address == null){
-                state.Restaurants = []
-                state.SavedRestaurants = []
-            }else{
-                state.Restaurants = state.SavedRestaurants.filter(ele=>ele.address == action.address)
+        case atn_typ.get_movies_success:
+            state.noMoviesFound = false;
+            if (action.pageNumber == 1) {
+                state.movies = [...action.payload.Search]
+            } else {
+                state.movies = [...state.movies, ...action.payload.Search]
             }
-            
-            return {...state}
-       case atn_typ.loading:
-           state.loading = action.flag
-           return {...state}
+            return { ...state }
+        case atn_typ.no_movies_found:
+            state.noMoviesFound = true;
+            state.movies = [];
+            return { ...state }
+        case atn_typ.update_fav_movies:
+            let indexOfFavMov = state.favMovies.findIndex(num => num == action.payload.imdbID)
+            if (indexOfFavMov == -1) {
+                state.favMovies.push(action.payload.imdbID)
+            } else {
+                state.favMovies.splice(indexOfFavMov, 1)
+            }
+            localStorage.setItem('favMovies', JSON.stringify(state.favMovies));
+            state.movies = [...state.movies]
+            return { ...state }
+        case atn_typ.get_movie_details:
+            state.selectedMovie = { ...action.payload }
+            return { ...state }
+        case atn_typ.loading:
+            state.loading = action.flag
+            return { ...state }
         default:
             return state
     }
