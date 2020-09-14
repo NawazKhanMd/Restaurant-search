@@ -2,10 +2,6 @@
   "name": "maps_tableau",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://NawazKhanMd.github.io/movie-search",
-  "engines": {
-    "node": "12.x"
-  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
@@ -39,10 +35,9 @@
   },
   "scripts": {
     "start": "env-cmd -f .env react-scripts start",
-    "build": "react-scripts build",
+    "build": "env-cmd -f .env react-scripts build",
     "test": "jest --watch --coverage",
-    "eject": "react-scripts eject",
-    "deploy":"gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
