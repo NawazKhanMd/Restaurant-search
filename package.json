@@ -39,10 +39,9 @@
   },
   "scripts": {
     "start": "env-cmd -f .env react-scripts start",
-    "build": "env-cmd -f .env react-scripts build",
+    "build": "react-scripts build",
     "test": "jest --watch --coverage",
     "eject": "react-scripts eject",
-    "predepoly":"env-cmd -f .env react-scripts build",
     "deploy":"gh-pages -d build"
   },
   "eslintConfig": {
